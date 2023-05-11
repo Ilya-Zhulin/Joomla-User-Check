@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.5" type="plugin" group="system" method="upgrade">
+    <name>User checker before save for Joomla</name>
+    <author>Ilya A.Zhulin</author>
+    <creationDate>May 2022</creationDate>
+    <copyright>Copyright zhulinia.ru 2023</copyright>
+    <authorEmail>ilya.zhulin@hotmail.com</authorEmail>
+    <authorUrl>https://zhulinia.ru/</authorUrl>
+    <version>1.0.0</version>
+    <description><![CDATA[
+	    <div style="font-family: tahoma;">
+     <h3>User checker before save for Joomla</h3>
+     <p><a href="https://zhulinia.ru/" target="_blank" >Ilya A.Zhulin</a></p>
+  </div>
+
+	]]></description>
+
+    <files>
+		<folder>language</folder>
+        <filename plugin="usercheck">usercheck.php</filename>
+        <filename>index.html</filename>
+    </files>
+	<languages folder="language">
+		<language tag="ru-RU">ru-RU/ru-RU.plg_system_usercheck.sys.ini</language>
+		<language tag="ru-RU">ru-RU/ru-RU.plg_system_usercheck.ini</language>
+		<language tag="en-GB">en-GB/en-GB.plg_system_usercheck.sys.ini</language>
+		<language tag="en-GB">en-GB/en-GB.plg_system_usercheck.ini</language>
+	</languages>
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+            </fieldset>
+            <fieldset name="mail_settings">
+                <field name="mailto"
+                       type="radio"
+                       class="btn-group"
+                       default="1"
+                       label="PLG_SYSTEM_USERCHECK_MAILTO_LABEL"
+                       description="PLG_SYSTEM_USERCHECK_MAILTO_DESCRIPTION">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="mailto_email"
+                       type="textarea"
+                       default=""
+                       label="PLG_SYSTEM_USERCHECK_MAILTO_EMAIL_LABEL"
+                       description="PLG_SYSTEM_USERCHECK_MAILTO_EMAIL_DESCRIPTION"
+                       rows="8"
+                       cols="15" >
+                </field>
+                <field name="mailto_subj"
+                       type="text"
+                       default="PLG_SYSTEM_USERCHECK_MAILTO_SUBJ_TEXT"
+                       label="PLG_SYSTEM_USERCHECK_MAILTO_SUBJ_LABEL"
+                       description="PLG_SYSTEM_USERCHECK_MAILTO_SUBJ_DESCRIPTION" >
+                </field>
+                <field name="mailto_logo"
+                       type="text"
+                       label="PLG_SYSTEM_USERCHECK_MAILTO_LOGO_LABEL"
+                       description="PLG_SYSTEM_USERCHECK_MAILTO_LOGO_DESCRIPTION" >
+                </field>
+            </fieldset>
+            <fieldset name="spam_settings">
+                <field
+                    name="bad_words"
+                    type="textarea"
+                    label="PLG_SYSTEM_USERCHECK_SPAM_SETTINGS_BAD_WORDS_LABEL"
+                    default="бонус, поздравл, Тинькофф, Совкомбанк, рассрочк, Карта рассрочки Совесть, Оформить карту, за доставленные неудобства, Level kitchen, эпидемиолог, href, Вулкан, Казино Вулкан,  геморро, похудеть, похудени, шлак, токсин, противопаразитарны, диет, поставщик, интернет-магазин, привет, hello"
+                    rows="8"
+                    cols="15"
+                    description="PLG_SYSTEM_USERCHECK_SPAM_SETTINGS_BAD_WORDS_DESCRIPTION" />
+                <field
+                    name="spaces"
+                    type="number"
+                    label="PLG_SYSTEM_USERCHECK_SPAM_SETTINGS_SPACES_LABEL"
+                    default="5"
+                    filter="integer"
+                    description="PLG_SYSTEM_USERCHECK_SPAM_SETTINGS_SPACES_DESCRIPTION" />
+
+            </fieldset>
+            <fieldset name="block_settings">
+                <field name="block_reg"
+                       type="radio"
+                       class="btn-group"
+                       default="1"
+                       label="PLG_SYSTEM_USERCHECK_BLOCK_SETTINGS_BLOCK_REG_LABEL"
+                       description="PLG_SYSTEM_USERCHECK_BLOCK_SETTINGS_BLOCK_REG_DESCRIPTION">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="block_user"
+                       type="radio"
+                       class="btn-group"
+                       default="1"
+                       label="PLG_SYSTEM_USERCHECK_BLOCK_SETTINGS_BLOCK_USER_LABEL"
+                       description="PLG_SYSTEM_USERCHECK_BLOCK_SETTINGS_BLOCK_USER_DESCRIPTION">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="block_user_tmp"
+                       type="number"
+                       default="1"
+                       label="PLG_SYSTEM_USERCHECK_BLOCK_SETTINGS_BLOCK_USER_TMP_LABEL"
+                       description="PLG_SYSTEM_USERCHECK_BLOCK_SETTINGS_BLOCK_USER_TMP_DESCRIPTION">
+                </field>
+                <field name="block_user_const"
+                       type="number"
+                       default="3"
+                       label="PLG_SYSTEM_USERCHECK_BLOCK_SETTINGS_BLOCK_USER_CONST_LABEL"
+                       description="PLG_SYSTEM_USERCHECK_BLOCK_SETTINGS_BLOCK_USER_CONST_DESCRIPTION">
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+</extension>
