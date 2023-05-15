@@ -17,8 +17,7 @@ use Joomla\CMS\Language\Text;
 class plgSystemUserCheck extends JPlugin {
 
 	public function onUserBeforeSave($user, $isnew, $new) {
-		$db		 = Factory::getDbo();
-		$lang	 = Factory::getLanguage();
+		$lang = Factory::getLanguage();
 		$lang->load('plg_system_usercheck', JPATH_ADMINISTRATOR);
 		if ($isnew) {
 			$app		 = Factory::getApplication();
@@ -50,7 +49,7 @@ class plgSystemUserCheck extends JPlugin {
 	}
 
 	private function _returnFalse($bw, $string) {
-		$db		 			 = Factory::getDbo();
+		$db					 = Factory::getDbo();
 		$ip					 = getenv('REMOTE_ADDR');
 		$time				 = date("Y-m-d H:i:s", strtotime("+1 hour"));
 		$now				 = date("Y-m-d H:i:s");
@@ -124,7 +123,7 @@ class plgSystemUserCheck extends JPlugin {
 		$body	 .= '<p>' . Text::_('PLG_SYSTEM_USERCHECK_MAILTO_BODY_TEXT_6') . $now . '</p>';
 		if ($block_user > 0) {
 			$body .= '<p>' . Text::_('PLG_SYSTEM_USERCHECK_MAILTO_BODY_TEXT_7') . $count . Text::_('PLG_SYSTEM_USERCHECK_MAILTO_BODY_TEXT_8') . '</p>';
-			if ($count > $block_user_tmp) {
+			if ($count > $block_user_tmp && $count <= $block_user_const) {
 				$body .= '<p>' . Text::_('PLG_SYSTEM_USERCHECK_MAILTO_BODY_TEXT_9') . '</p>';
 			}
 			if ($count > $block_user_const) {
